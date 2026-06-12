@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>三国文字策略 - 加密试玩版</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #120f0b;
+        --panel: #21180f;
+        --panel-strong: #2d2114;
+        --line: #9d793d;
+        --line-strong: #d7a84d;
+        --text: #f5e6c8;
+        --muted: #bea681;
+        --danger: #e28a74;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+      }
+
+      .unlock-shell {
+        width: min(430px, 100vw);
+        min-height: 100vh;
+        display: grid;
+        align-content: center;
+        padding: 28px 20px;
+        background: #18100b;
+        border-left: 1px solid rgba(157, 121, 61, 0.34);
+        border-right: 1px solid rgba(157, 121, 61, 0.34);
+      }
+
+      .unlock-panel {
+        display: grid;
+        gap: 18px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+      }
+
+      h1 {
+        margin: 0;
+        color: #f4d58a;
+        font-size: 24px;
+        line-height: 31px;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      form {
+        display: grid;
+        gap: 12px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      input {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: var(--panel-strong);
+        color: var(--text);
+        font: inherit;
+      }
+
+      input:focus {
+        outline: 2px solid rgba(215, 168, 77, 0.36);
+        outline-offset: 2px;
+      }
+
+      button {
+        min-height: 46px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #432d1e;
+        color: var(--text);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 800;
+      }
+
+      button:hover:not(:disabled) {
+        border-color: var(--line-strong);
+        background: #513520;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.58;
+      }
+
+      .status {
+        min-height: 22px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 22px;
+      }
+
+      .status.is-error {
+        color: var(--danger);
+      }
+
+      noscript {
+        color: var(--danger);
+      }
+    </style>
+    <script defer src="./loader.js"></script>
+  </head>
+  <body>
+    <main class="unlock-shell">
+      <section class="unlock-panel" aria-labelledby="unlock-title">
+        <div>
+          <h1 id="unlock-title">三国文字策略</h1>
+          <p>请输入发布密码。解锁后，页面会在本地浏览器中解密并启动试玩版。</p>
+        </div>
+        <form id="unlock-form" autocomplete="off">
+          <label>
+            发布密码
+            <input id="unlock-password" type="password" autocomplete="current-password" required>
+          </label>
+          <button id="unlock-submit" type="submit">解锁</button>
+          <div id="unlock-status" class="status" role="status" aria-live="polite"></div>
+        </form>
+        <noscript>需要启用 JavaScript 才能解锁试玩版。</noscript>
+      </section>
+    </main>
+  </body>
+</html>

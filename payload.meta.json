@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "format": "sg10.encrypted.pages.v1",
+  "algorithm": "AES-GCM",
+  "kdf": "PBKDF2",
+  "hash": "SHA-256",
+  "keyBits": 256,
+  "iterations": 310000,
+  "salt": "2auOUHqGJyP6UDYn9L+CRg==",
+  "iv": "7vo929xYj2rO/Ue8",
+  "payload": "payload.enc",
+  "createdAt": "2026-06-12T13:05:56.891Z"
+}
