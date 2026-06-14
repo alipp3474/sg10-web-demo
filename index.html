@@ -131,11 +131,56 @@
         color: var(--danger);
       }
 
+      .progress {
+        display: grid;
+        gap: 7px;
+      }
+
+      .progress[hidden] {
+        display: none;
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 10px;
+        overflow: hidden;
+        border: 1px solid rgba(215, 168, 77, 0.52);
+        border-radius: 999px;
+        background: rgba(18, 15, 11, 0.82);
+      }
+
+      .progress-fill {
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #a06b2b, #f0c76d);
+        transition: width 180ms ease;
+      }
+
+      .progress.is-error .progress-fill {
+        background: var(--danger);
+      }
+
+      .progress-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      .progress-percent {
+        flex: 0 0 auto;
+        color: var(--text);
+        font-variant-numeric: tabular-nums;
+      }
+
       noscript {
         color: var(--danger);
       }
     </style>
-    <script defer src="./loader.js?v=1781442311088"></script>
+    <script defer src="./loader.js?v=1781443865109"></script>
   </head>
   <body>
     <main class="unlock-shell">
@@ -150,6 +195,23 @@
             <input id="unlock-password" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required>
           </label>
           <button id="unlock-submit" type="submit">解锁</button>
+          <div id="unlock-progress" class="progress" hidden>
+            <div
+              id="unlock-progressbar"
+              class="progress-track"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-label="解锁进度"
+            >
+              <div id="unlock-progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="progress-row">
+              <span id="unlock-progress-label">准备解锁...</span>
+              <span id="unlock-progress-percent" class="progress-percent">0%</span>
+            </div>
+          </div>
           <div id="unlock-status" class="status" role="status" aria-live="polite"></div>
         </form>
         <noscript>需要启用 JavaScript 才能解锁试玩版。</noscript>
