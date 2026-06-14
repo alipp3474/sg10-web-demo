@@ -117,7 +117,7 @@
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const password = passwordInput.value;
+    const password = passwordInput.value.trim();
     if (!password) {
       setStatus('请输入发布密码。', true);
       passwordInput.focus();
@@ -136,7 +136,7 @@
       passwordInput.disabled = false;
       submitButton.disabled = false;
       passwordInput.select();
-      setStatus('解锁失败。请检查密码或发布文件是否完整。', true);
+      setStatus('解锁失败。请确认密码没有输错；如果刚更新过页面，请强制刷新后重试。', true);
     }
   });
 }());
